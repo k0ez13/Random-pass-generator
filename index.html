@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AIM Password Generator</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,600;0,800;1,900&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <div class="box">
+            <h1>R A N D O M  G E N E R A T O R</h1>
+            <input type="text" name="" placeholder="Generate Password" id="password" readonly="">
+            <img src="copy_100px.png" class="copy" onclick="alert1();">
+            <div id="btn" onclick="getPassword();">Generate</div>
+        </div>
+        <script type="text/javascript">
+        function alert1()
+        {
+            var copyPassText = document.getElementById("password");
+            copyPassText.select();
+            copyPassText.setSelectionRange(0,9999);
+            document.execCommand("copy")
+            confirm("Copy To ClipBoard")
+        }
+         function getPassword(){
+            var chars = "0123456789abcdefghijklmnopqrstuvwxyzçABCDEFGHIJKLMNOPQRSTUVWXYZÇ!@#$%^&*()_+?><:{}[]";
+            var passwordLength = 16;
+            var password = "";
+            
+            for (var i=0; i<passwordLength; i++){
+                var randomNumber = Math.floor(Math.random() * chars.length);
+                password += chars.substring(randomNumber,randomNumber+1);
+            }
+            document.getElementById("password").value = password
+         }
+        </script>
+    </body>
+</html>
